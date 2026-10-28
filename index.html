@@ -106,8 +106,8 @@
 
     .button {
       width: 100%;
-      min-height: 54px;
-      padding: 12px;
+      min-height: 58px;
+      padding: 11px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -165,9 +165,9 @@
     }
 
     .button-icon {
-      width: 25px;
-      height: 25px;
-      flex: 0 0 25px;
+      width: 32px;
+      height: 32px;
+      flex: 0 0 32px;
       display: grid;
       place-items: center;
     }
@@ -184,13 +184,13 @@
       color: inherit;
       font-size: 9px;
       font-weight: 500;
-      opacity: .78;
+      opacity: .8;
     }
 
     .chevron {
       margin-left: auto;
       color: #7d8eb0;
-      font-size: 13px;
+      font-size: 14px;
       transition: transform .2s ease;
     }
 
@@ -226,7 +226,6 @@
       place-items: center;
       border-radius: 12px;
       background: var(--blue-light);
-      color: var(--blue);
     }
 
     .guide-heading h2 {
@@ -343,7 +342,6 @@
         opacity: 0;
         transform: translateY(-5px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
@@ -367,9 +365,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         animation-duration: .01ms !important;
         transition-duration: .01ms !important;
         scroll-behavior: auto !important;
@@ -395,25 +391,31 @@
 
     <nav class="actions" aria-label="Menu utama">
 
-      <!-- Tombol Download APK -->
+      <!-- DOWNLOAD APK -->
       <a class="button button-primary"
          href="https://drive.google.com/file/d/15mRQlT2KgXenGyRYHDZlo414DNi8mDbN/view?usp=drive_link"
          target="_blank"
          rel="noopener noreferrer">
 
         <span class="button-icon" aria-hidden="true">
-          <!-- Ikon ponsel dan unduh -->
-          <svg viewBox="0 0 24 24"
-               width="23" height="23"
-               fill="none"
-               stroke="currentColor"
-               stroke-width="1.8"
-               stroke-linecap="round"
-               stroke-linejoin="round">
-            <rect x="5" y="2" width="14" height="20" rx="3"/>
-            <path d="M9 6h6M10 18h4"/>
-            <path d="M12 9v5m-2-2 2 2 2-2"
-                  stroke-width="1.8"/>
+          <svg viewBox="0 0 48 48" width="32" height="32">
+            <defs>
+              <linearGradient id="apkPhone" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#86efac"/>
+                <stop offset="100%" stop-color="#16a34a"/>
+              </linearGradient>
+            </defs>
+            <rect x="9" y="3" width="27" height="42" rx="7" fill="#173b78"/>
+            <rect x="12" y="7" width="21" height="33" rx="4" fill="url(#apkPhone)"/>
+            <rect x="19" y="4.5" width="7" height="1.5" rx="1" fill="#bfdbfe"/>
+            <circle cx="22.5" cy="42.5" r="1.4" fill="#bfdbfe"/>
+            <path d="M22.5 13v13m-5-5 5 5 5-5"
+                  fill="none" stroke="#ffffff" stroke-width="3.2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="34" cy="34" r="10" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+            <path d="M34 28v10m-4-4 4 4 4-4"
+                  fill="none" stroke="#ffffff" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
 
@@ -423,25 +425,25 @@
         </span>
       </a>
 
-      <!-- Tombol Download ROM -->
+      <!-- DOWNLOAD ROM -->
       <a class="button button-primary"
          href="https://drive.google.com/file/d/1ZKqDHntenFLPG_RvTFhS8k8CnWeVN_hb/view?usp=drive_link"
          target="_blank"
          rel="noopener noreferrer">
 
         <span class="button-icon" aria-hidden="true">
-          <!-- Ikon game controller -->
-          <svg viewBox="0 0 24 24"
-               width="23" height="23"
-               fill="none"
-               stroke="currentColor"
-               stroke-width="1.8"
-               stroke-linecap="round"
-               stroke-linejoin="round">
-            <path d="M6.5 8h11a4.5 4.5 0 0 1 4.4 5.5l-.8 3.2a2.5 2.5 0 0 1-4.1 1.2L14.5 15h-5l-2.5 2.9a2.5 2.5 0 0 1-4.1-1.2l-.8-3.2A4.5 4.5 0 0 1 6.5 8Z"/>
-            <path d="M7 10.5v4M5 12.5h4"/>
-            <circle cx="16" cy="11.5" r=".8" fill="currentColor"/>
-            <circle cx="18.5" cy="14" r=".8" fill="currentColor"/>
+          <svg viewBox="0 0 48 48" width="32" height="32">
+            <path d="M11 15C5 15 3 22 5 31l2 7c1 4 5 5 8 2l6-6h7l6 6c3 3 7 2 8-2l2-7c2-9 0-16-6-16Z"
+                  fill="#334155" stroke="#172554" stroke-width="1.5"/>
+            <path d="M14 21v12m-6-6h12"
+                  fill="none" stroke="#e2e8f0" stroke-width="4"
+                  stroke-linecap="round"/>
+            <circle cx="34" cy="23" r="3.2" fill="#facc15"/>
+            <circle cx="38" cy="29" r="3.2" fill="#fb7185"/>
+            <circle cx="31" cy="31" r="2.4" fill="#60a5fa"/>
+            <path d="M24 17v10m-4-4 4 4 4-4"
+                  fill="none" stroke="#ffffff" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
 
@@ -451,21 +453,28 @@
         </span>
       </a>
 
-      <!-- Tombol Support -->
+      <!-- SUPPORT SAYA -->
       <a class="button button-support"
          href="https://sociabuzz.com/toobey/tribe"
          target="_blank"
          rel="noopener noreferrer">
 
         <span class="button-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"
-               width="21" height="21"
-               fill="none"
-               stroke="currentColor"
-               stroke-width="1.8"
-               stroke-linecap="round"
-               stroke-linejoin="round">
-            <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/>
+          <svg viewBox="0 0 48 48" width="29" height="29">
+            <defs>
+              <linearGradient id="heartColor" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#fb7185"/>
+                <stop offset="100%" stop-color="#e11d48"/>
+              </linearGradient>
+            </defs>
+            <path d="M24 41S5 29 5 16C5 5 19 2 24 13 29 2 43 5 43 16 43 29 24 41 24 41Z"
+                  fill="url(#heartColor)" stroke="#be123c" stroke-width="1.2"/>
+            <path d="M12 15c1-4 5-6 8-4"
+                  fill="none" stroke="#fecdd3" stroke-width="3"
+                  stroke-linecap="round"/>
+            <path d="m19 22 4 4 8-9"
+                  fill="none" stroke="#ffffff" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
 
@@ -473,7 +482,7 @@
         <span class="chevron" aria-hidden="true">↗</span>
       </a>
 
-      <!-- Tombol Panduan -->
+      <!-- PANDUAN INSTALASI -->
       <button class="button button-guide"
               id="guideButton"
               type="button"
@@ -481,15 +490,21 @@
               aria-controls="installationGuide">
 
         <span class="button-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"
-               width="22" height="22"
-               fill="none"
-               stroke="currentColor"
-               stroke-width="1.8"
-               stroke-linecap="round"
-               stroke-linejoin="round">
-            <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22Z"/>
-            <path d="M4 5.5V22M8 7h8M8 11h8M8 15h5"/>
+          <svg viewBox="0 0 48 48" width="30" height="30">
+            <path d="M5 10c7-3 14-2 19 2v29c-5-4-12-5-19-2Z"
+                  fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.5"
+                  stroke-linejoin="round"/>
+            <path d="M43 10c-7-3-14-2-19 2v29c5-4 12-5 19-2Z"
+                  fill="#ffffff" stroke="#1d4ed8" stroke-width="1.5"
+                  stroke-linejoin="round"/>
+            <path d="M10 16c4-1 7 0 10 2M10 22c4-1 7 0 10 2M10 28c4-1 7 0 10 2"
+                  fill="none" stroke="#dbeafe" stroke-width="2"
+                  stroke-linecap="round"/>
+            <path d="M29 17h9M29 23h9M29 29h7"
+                  fill="none" stroke="#60a5fa" stroke-width="2"
+                  stroke-linecap="round"/>
+            <path d="m31 5 2 3 4 1-4 2-2 4-2-4-4-2 4-1Z"
+                  fill="#fbbf24"/>
           </svg>
         </span>
 
@@ -499,20 +514,24 @@
 
     </nav>
 
-    <!-- Panduan tersembunyi sampai tombol diklik -->
+    <!-- PANDUAN: MUNCUL SAAT DIKLIK -->
     <section class="guide" id="installationGuide" hidden>
 
       <div class="guide-heading">
         <div class="guide-heading-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"
-               width="23" height="23"
-               fill="none"
-               stroke="currentColor"
-               stroke-width="1.8"
-               stroke-linecap="round"
-               stroke-linejoin="round">
-            <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22Z"/>
-            <path d="M4 5.5V22M8 7h8M8 11h8M8 15h5"/>
+          <svg viewBox="0 0 48 48" width="30" height="30">
+            <path d="M5 10c7-3 14-2 19 2v29c-5-4-12-5-19-2Z"
+                  fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.5"
+                  stroke-linejoin="round"/>
+            <path d="M43 10c-7-3-14-2-19 2v29c5-4 12-5 19-2Z"
+                  fill="#ffffff" stroke="#1d4ed8" stroke-width="1.5"
+                  stroke-linejoin="round"/>
+            <path d="M10 16c4-1 7 0 10 2M10 22c4-1 7 0 10 2M10 28c4-1 7 0 10 2"
+                  fill="none" stroke="#dbeafe" stroke-width="2"
+                  stroke-linecap="round"/>
+            <path d="M29 17h9M29 23h9M29 29h7"
+                  fill="none" stroke="#60a5fa" stroke-width="2"
+                  stroke-linecap="round"/>
           </svg>
         </div>
         <div>
@@ -595,7 +614,7 @@
       </div>
 
       <div class="tip">
-        <strong>💡 ROM tidak terbaca?</strong>
+        <strong>ROM tidak terbaca?</strong>
         <p>
           Pastikan file ROM terunduh lengkap dan pilih file
           yang benar. Jika masih gagal, coba unduh ulang
