@@ -3,13 +3,10 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111827">
-
-  <title>SMB Remastered Android - Panduan Instalasi</title>
-
-  <meta name="description"
-        content="Panduan download dan instalasi SMB Remastered Android langkah demi langkah.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="description" content="Download SMB Remastered Android dan baca panduan instalasinya.">
+  <title>SMB Remastered Android</title>
 
   <style>
     * {
@@ -18,108 +15,155 @@
 
     body {
       margin: 0;
+      padding: 24px 14px 35px;
+      background: #f3f7ff;
+      color: #1e293b;
       font-family: Arial, Helvetica, sans-serif;
-      background: #111827;
-      color: #f9fafb;
-      line-height: 1.7;
+      font-size: 13px;
+      line-height: 1.6;
     }
 
     .container {
       width: 100%;
-      max-width: 850px;
-      margin: auto;
-      padding: 24px 18px 40px;
+      max-width: 460px;
+      margin: 0 auto;
     }
 
-    header {
+    .header {
       text-align: center;
-      padding: 38px 15px;
-      background: linear-gradient(135deg, #dc2626, #991b1b);
-      border-radius: 18px;
-      margin-bottom: 25px;
+      padding: 26px 18px 22px;
+      background: #ffffff;
+      border: 1px solid #dbeafe;
+      border-radius: 16px;
+      margin-bottom: 16px;
     }
 
-    header h1 {
-      margin: 0 0 10px;
-      font-size: clamp(28px, 6vw, 42px);
+    .logo {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #dbeafe;
+      border-radius: 16px;
+      font-size: 30px;
     }
 
-    header p {
+    h1 {
       margin: 0;
-      color: #fee2e2;
+      font-size: 22px;
+      color: #1d4ed8;
     }
 
-    .card {
-      background: #1f2937;
-      border: 1px solid #374151;
-      border-radius: 15px;
-      padding: 22px;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      color: #f87171;
-      margin-top: 0;
-      font-size: 23px;
-    }
-
-    h3 {
-      color: #fbbf24;
-      margin-bottom: 8px;
+    .subtitle {
+      color: #64748b;
+      font-size: 12px;
+      margin: 5px 0 0;
     }
 
     .buttons {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 18px;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
     }
 
     .btn {
-      display: block;
+      min-height: 44px;
+      padding: 11px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
       text-align: center;
       text-decoration: none;
-      padding: 14px 18px;
+      border: 1px solid #2563eb;
       border-radius: 10px;
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 12px;
       font-weight: bold;
-      color: white;
-      transition: opacity 0.2s;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
     }
 
     .btn:hover {
-      opacity: 0.85;
+      background: #1d4ed8;
     }
 
-    .apk {
-      background: #dc2626;
+    .btn-support {
+      grid-column: 1 / -1;
+      background: #ffffff;
+      color: #2563eb;
     }
 
-    .rom {
-      background: #2563eb;
+    .btn-support:hover {
+      background: #eff6ff;
     }
 
-    .support {
-      background: #059669;
+    .btn-guide {
+      grid-column: 1 / -1;
+      background: #ffffff;
+      color: #1d4ed8;
+      border-color: #bfdbfe;
+    }
+
+    .btn-guide:hover {
+      background: #eff6ff;
+    }
+
+    .arrow {
+      font-size: 11px;
+      transition: transform 0.2s;
+    }
+
+    .btn-guide[aria-expanded="true"] .arrow {
+      transform: rotate(180deg);
+    }
+
+    .guide {
+      display: none;
+      background: #ffffff;
+      border: 1px solid #dbeafe;
+      border-radius: 13px;
+      padding: 17px 16px;
+      margin-bottom: 16px;
+    }
+
+    .guide.open {
+      display: block;
+    }
+
+    .guide h2 {
+      color: #1d4ed8;
+      font-size: 16px;
+      margin: 0 0 12px;
     }
 
     .step {
       display: flex;
       align-items: flex-start;
-      gap: 14px;
-      margin: 22px 0;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .step:last-child {
+      margin-bottom: 0;
     }
 
     .number {
-      flex-shrink: 0;
+      flex: 0 0 25px;
+      height: 25px;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 38px;
-      height: 38px;
-      background: #dc2626;
-      color: white;
-      border-radius: 50%;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-size: 12px;
       font-weight: bold;
+      border-radius: 50%;
     }
 
     .step-content {
@@ -127,46 +171,51 @@
       min-width: 0;
     }
 
-    .step-content h3 {
-      margin-top: 3px;
+    .step h3 {
+      margin: 2px 0 4px;
+      font-size: 12px;
+      color: #1e40af;
     }
 
-    .step-content p {
-      margin-top: 5px;
-      color: #d1d5db;
+    .step p {
+      margin: 0 0 5px;
+      font-size: 11px;
+      line-height: 1.65;
+      color: #475569;
+    }
+
+    .step ul {
+      margin: 5px 0;
+      padding-left: 17px;
+      color: #475569;
+      font-size: 11px;
     }
 
     code {
       overflow-wrap: anywhere;
-      background: #111827;
-      padding: 3px 7px;
-      border-radius: 5px;
-      color: #fbbf24;
+      color: #1d4ed8;
+      background: #eff6ff;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 10px;
     }
 
-    .tip {
-      background: #172554;
-      border-left: 4px solid #3b82f6;
-      padding: 13px 15px;
-      border-radius: 7px;
-      color: #dbeafe;
+    .help {
+      padding: 12px;
+      background: #eff6ff;
+      border-radius: 9px;
+      margin-top: 16px;
+    }
+
+    .help h3 {
+      margin-top: 0;
     }
 
     footer {
       text-align: center;
-      color: #9ca3af;
-      font-size: 14px;
-      padding: 15px 5px;
-    }
-
-    @media (min-width: 600px) {
-      .buttons {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .buttons .support {
-        grid-column: 1 / -1;
-      }
+      color: #94a3b8;
+      font-size: 10px;
+      padding-top: 12px;
     }
   </style>
 </head>
@@ -174,62 +223,56 @@
 <body>
   <main class="container">
 
-    <header>
-      <h1>🍄 SMB Remastered</h1>
-      <p>Panduan Download dan Instalasi Android</p>
+    <header class="header">
+      <div class="logo">🍄</div>
+      <h1>SMB Remastered</h1>
+      <p class="subtitle">Download &amp; Panduan Android</p>
     </header>
 
-    <section class="card">
-      <h2>📥 Download File</h2>
-      <p>
-        Sebelum memulai instalasi, unduh kedua file berikut
-        ke perangkat Android kamu.
-      </p>
+    <nav class="buttons" aria-label="Menu utama">
 
-      <div class="buttons">
-        <a class="btn apk"
-           href="https://drive.google.com/file/d/15mRQlT2KgXenGyRYHDZlo414DNi8mDbN/view?usp=drive_link"
-           target="_blank"
-           rel="noopener noreferrer">
-          📱 Download APK
-        </a>
+      <a class="btn"
+         href="https://drive.google.com/file/d/15mRQlT2KgXenGyRYHDZlo414DNi8mDbN/view?usp=drive_link"
+         target="_blank" rel="noopener noreferrer">
+        ⬇ Download APK
+      </a>
 
-        <a class="btn rom"
-           href="https://drive.google.com/file/d/1ZKqDHntenFLPG_RvTFhS8k8CnWeVN_hb/view?usp=drive_link"
-           target="_blank"
-           rel="noopener noreferrer">
-          🎮 Download ROM
-        </a>
+      <a class="btn"
+         href="https://drive.google.com/file/d/1ZKqDHntenFLPG_RvTFhS8k8CnWeVN_hb/view?usp=drive_link"
+         target="_blank" rel="noopener noreferrer">
+        ⬇ Download ROM
+      </a>
 
-        <a class="btn support"
-           href="https://sociabuzz.com/toobey/tribe"
-           target="_blank"
-           rel="noopener noreferrer">
-          ❤️ Support Saya
-        </a>
-      </div>
+      <a class="btn btn-support"
+         href="https://sociabuzz.com/toobey/tribe"
+         target="_blank" rel="noopener noreferrer">
+        ♥ Support Saya
+      </a>
 
-      <p class="tip" style="margin-top:20px">
-        Pastikan file APK dan file ROM
-        <code>Super Mario Bros.nes</code>
-        sudah selesai diunduh sebelum melanjutkan.
-      </p>
-    </section>
+      <button
+        class="btn btn-guide"
+        id="guideButton"
+        type="button"
+        aria-expanded="false"
+        aria-controls="installationGuide">
+        📖 Panduan Instalasi
+        <span class="arrow">▼</span>
+      </button>
 
-    <section class="card">
-      <h2>📖 Panduan Instalasi</h2>
+    </nav>
+
+    <section class="guide" id="installationGuide">
+      <h2>Panduan Instalasi</h2>
 
       <div class="step">
         <div class="number">1</div>
         <div class="step-content">
-          <h3>Unduh Kedua File</h3>
+          <h3>Download File</h3>
           <p>
-            Tekan tombol Download APK dan Download ROM di atas.
-            Simpan kedua file di penyimpanan HP kamu.
+            Download kedua file melalui tombol di atas:
           </p>
-          <p>File yang dibutuhkan:</p>
           <ul>
-            <li>File aplikasi SMB Remastered Android (.apk)</li>
+            <li>SMB Remastered Android (.apk)</li>
             <li><code>Super Mario Bros.nes</code></li>
           </ul>
         </div>
@@ -238,24 +281,16 @@
       <div class="step">
         <div class="number">2</div>
         <div class="step-content">
-          <h3>Izinkan Instalasi Aplikasi</h3>
+          <h3>Izinkan Instalasi APK</h3>
           <p>
-            Jika Android meminta izin untuk memasang aplikasi,
-            buka pengaturan yang ditampilkan pada layar.
+            Jika diminta, buka pengaturan Android dan izinkan
+            pemasangan aplikasi dari sumber tersebut.
           </p>
           <p>
-            Pada sebagian perangkat, menu ini berada di
-            <strong>Settings → Security &amp; Privacy →
-            Install unknown apps</strong>.
-          </p>
-          <p>
-            Pilih aplikasi yang digunakan untuk membuka file APK,
-            misalnya File Manager atau browser, lalu aktifkan izin
-            instalasi jika diperlukan.
-          </p>
-          <p>
-            Nama dan lokasi menu dapat berbeda tergantung merek
-            serta versi Android.
+            Pada beberapa HP, menu berada di
+            <b>Settings → Security &amp; Privacy →
+            Install unknown apps</b>. Nama menu bisa berbeda
+            tergantung perangkat.
           </p>
         </div>
       </div>
@@ -265,18 +300,11 @@
         <div class="step-content">
           <h3>Instal Aplikasi</h3>
           <p>
-            Buka File Manager di HP kamu, lalu masuk ke folder
-            tempat file APK diunduh. Biasanya file berada di folder
-            <code>Download</code>.
+            Buka File Manager, masuk ke folder
+            <code>Download</code>, lalu ketuk file APK.
+            Tekan <b>Install</b> dan tunggu sampai selesai.
           </p>
-          <p>
-            Ketuk file APK SMB Remastered, tekan
-            <strong>Install</strong>, kemudian tunggu sampai proses
-            instalasi selesai.
-          </p>
-          <p>
-            Setelah selesai, buka aplikasi SMB Remastered.
-          </p>
+          <p>Setelah itu, buka SMB Remastered.</p>
         </div>
       </div>
 
@@ -285,17 +313,13 @@
         <div class="step-content">
           <h3>Pilih File ROM</h3>
           <p>
-            Saat aplikasi menampilkan pesan
+            Ketika muncul pesan
             <code>ROM VERIFICATION REQUIRED</code>,
-            ketuk pesan atau tombol yang tersedia untuk memilih ROM.
+            ketuk pesan atau tombol untuk memilih file ROM.
           </p>
           <p>
-            Buka lokasi file ROM yang sudah diunduh, lalu pilih
-            <code>Super Mario Bros.nes</code>.
-          </p>
-          <p>
-            Tunggu proses pemeriksaan file selesai.
-            Jika berhasil, lanjutkan ke permainan.
+            Cari dan pilih <code>Super Mario Bros.nes</code>
+            dari penyimpanan HP.
           </p>
         </div>
       </div>
@@ -305,59 +329,44 @@
         <div class="step-content">
           <h3>Mulai Bermain</h3>
           <p>
-            Setelah ROM berhasil dikenali oleh aplikasi,
-            kamu bisa mulai memainkan SMB Remastered di perangkat
-            Android.
+            Tunggu pemeriksaan ROM selesai. Jika file berhasil
+            dikenali, lanjutkan dan nikmati permainannya.
           </p>
         </div>
       </div>
-    </section>
 
-    <section class="card">
-      <h2>❓ Kendala Saat Instalasi?</h2>
-
-      <h3>File ROM tidak ditemukan</h3>
-      <p>
-        Pastikan file <code>Super Mario Bros.nes</code> sudah
-        diunduh dan kamu memilih file yang benar melalui pemilih
-        file Android.
-      </p>
-
-      <h3>Pesan ROM Verification masih muncul</h3>
-      <p>
-        Periksa kembali apakah file ROM yang dipilih benar dan
-        proses pemilihan file sudah selesai. Jika masih gagal,
-        coba unduh ulang file ROM.
-      </p>
-
-      <h3>APK tidak bisa dipasang</h3>
-      <p>
-        Periksa apakah file APK sudah selesai diunduh dan apakah
-        perangkat mengizinkan pemasangan aplikasi tersebut.
-        Jika muncul pesan kesalahan, perhatikan pesan yang
-        ditampilkan Android.
-      </p>
-    </section>
-
-    <section class="card" style="text-align:center">
-      <h2>❤️ Dukung Kreator</h2>
-      <p>
-        Jika panduan ini membantu kamu, kamu bisa memberikan
-        dukungan melalui tautan berikut.
-      </p>
-
-      <a class="btn support"
-         href="https://sociabuzz.com/toobey/tribe"
-         target="_blank"
-         rel="noopener noreferrer">
-        Support Saya
-      </a>
+      <div class="help">
+        <h3>💡 Jika ROM Gagal Dibaca</h3>
+        <p>
+          Pastikan file ROM sudah terunduh dengan lengkap dan
+          pilih file yang benar. Jika masih gagal, coba unduh
+          ulang ROM lalu pilih kembali melalui aplikasi.
+        </p>
+      </div>
     </section>
 
     <footer>
-      SMB Remastered Android — Panduan Instalasi
+      SMB Remastered Android · Panduan Instalasi
     </footer>
 
   </main>
+
+  <script>
+    const guideButton = document.getElementById("guideButton");
+    const guide = document.getElementById("installationGuide");
+
+    guideButton.addEventListener("click", function () {
+      const isOpen = guide.classList.toggle("open");
+
+      guideButton.setAttribute("aria-expanded", String(isOpen));
+
+      if (isOpen) {
+        guide.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
+  </script>
 </body>
 </html>
