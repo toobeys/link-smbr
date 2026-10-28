@@ -3,344 +3,258 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f8ff">
-  <meta name="description" content="Download SMB Remastered Android dan ikuti panduan instalasinya.">
-
-  <title>SMB Remastered | Android</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f8ff">
+  <meta name="description" content="Download SMB Remastered Android dan ikuti panduan instalasi Super Mario Bros.">
+  <title>SMB Remastered Android</title>
 
   <style>
     :root {
-      --blue: #3563f6;
-      --blue-dark: #2349d8;
-      --blue-light: #edf3ff;
-      --text: #172554;
-      --muted: #718096;
-      --border: #e5ebf5;
+      --blue: #2878f0;
+      --blue-dark: #1557c0;
+      --blue-light: #eaf2ff;
+      --green: #20bd69;
+      --text: #172b4d;
+      --muted: #687891;
       --white: #ffffff;
+      --border: #e4ebf5;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      padding: 34px 16px;
-      background:
-        radial-gradient(ellipse at top, #e5edff 0%, transparent 55%),
-        #f5f8ff;
+      min-height: 100vh;
+      padding: 30px 16px;
+      font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
-      font-family: Inter, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Arial, sans-serif;
-      font-size: 13px;
-      line-height: 1.65;
+      background:
+        radial-gradient(circle at 10% 5%, #e2edff 0, transparent 32%),
+        radial-gradient(circle at 95% 80%, #e6f8ef 0, transparent 28%),
+        #f5f8fd;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
     }
 
     .container {
-      max-width: 440px;
+      width: 100%;
+      max-width: 560px;
       margin: 0 auto;
     }
 
-    .hero {
-      text-align: center;
-      padding: 27px 18px 24px;
-      margin-bottom: 18px;
+    .card {
+      overflow: hidden;
       background: var(--white);
-      border: 1px solid rgba(229, 235, 245, .9);
-      border-radius: 24px;
-      box-shadow: 0 12px 35px rgba(37, 72, 150, .06);
+      border: 1px solid rgba(222, 232, 247, 0.95);
+      border-radius: 28px;
+      box-shadow: 0 18px 55px rgba(36, 73, 130, 0.10);
     }
 
-    .app-icon {
-      width: 70px;
-      height: 70px;
-      margin: 0 auto 15px;
-      display: grid;
-      place-items: center;
-      border-radius: 22px;
-      background: linear-gradient(145deg, #5483ff, #2e55e8);
-      box-shadow: 0 9px 20px rgba(53, 99, 246, .24);
-      font-size: 35px;
-    }
-
-    .eyebrow {
-      margin: 0 0 5px;
-      color: var(--blue);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-      color: #15264c;
-      font-size: 25px;
-      font-weight: 800;
-      letter-spacing: -.8px;
-      line-height: 1.3;
-    }
-
-    .description {
-      max-width: 290px;
-      margin: 9px auto 0;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .section-label {
-      margin: 22px 4px 10px;
-      color: #8491a8;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    .actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 11px;
-    }
-
-    .button {
-      width: 100%;
-      min-height: 58px;
-      padding: 11px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      border: 1px solid transparent;
-      border-radius: 15px;
+    .hero {
+      position: relative;
+      padding: 32px 24px 26px;
       text-align: center;
-      text-decoration: none;
-      font-family: inherit;
-      font-size: 12px;
-      font-weight: 750;
-      cursor: pointer;
-      transition: transform .18s ease, box-shadow .18s ease,
-        background .18s ease;
+      background: linear-gradient(145deg, #edf4ff, #ffffff 72%);
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-    }
-
-    .button:focus-visible {
-      outline: 3px solid #a8c2ff;
-      outline-offset: 3px;
-    }
-
-    .button-primary {
-      color: #fff;
-      background: linear-gradient(135deg, #4675ff, #3157e9);
-      box-shadow: 0 6px 14px rgba(53, 99, 246, .16);
-    }
-
-    .button-primary:hover {
-      box-shadow: 0 9px 19px rgba(53, 99, 246, .24);
-    }
-
-    .button-support {
-      grid-column: 1 / -1;
-      color: #2253d8;
-      background: #fff;
-      border-color: #dbe5ff;
-      box-shadow: 0 4px 12px rgba(37, 72, 150, .04);
-    }
-
-    .button-support:hover,
-    .button-guide:hover {
-      background: #f4f7ff;
-    }
-
-    .button-guide {
-      grid-column: 1 / -1;
-      color: #243b69;
-      background: #fff;
-      border-color: var(--border);
-      box-shadow: 0 4px 12px rgba(37, 72, 150, .04);
-    }
-
-    .button-icon {
-      width: 32px;
-      height: 32px;
-      flex: 0 0 32px;
-      display: grid;
-      place-items: center;
-    }
-
-    .button-text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      line-height: 1.35;
-    }
-
-    .button-text small {
-      margin-top: 3px;
-      color: inherit;
-      font-size: 9px;
-      font-weight: 500;
-      opacity: .8;
-    }
-
-    .chevron {
-      margin-left: auto;
-      color: #7d8eb0;
-      font-size: 14px;
-      transition: transform .2s ease;
-    }
-
-    .button-guide[aria-expanded="true"] .chevron {
-      transform: rotate(180deg);
-    }
-
-    .guide {
-      margin-top: 16px;
-      padding: 20px 17px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 19px;
-      box-shadow: 0 10px 30px rgba(37, 72, 150, .05);
-      animation: appear .22s ease;
-    }
-
-    .guide[hidden] {
-      display: none;
-    }
-
-    .guide-heading {
-      display: flex;
+    .hero-badge {
+      display: inline-flex;
       align-items: center;
-      gap: 11px;
-      margin-bottom: 20px;
+      gap: 7px;
+      padding: 7px 12px;
+      border: 1px solid #d6e5ff;
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--blue-dark);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
 
-    .guide-heading-icon {
-      width: 39px;
-      height: 39px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      background: var(--blue-light);
-    }
-
-    .guide-heading h2 {
-      margin: 0;
-      font-size: 16px;
-      line-height: 1.4;
-    }
-
-    .guide-heading p {
-      margin: 2px 0 0;
-      color: var(--muted);
-      font-size: 10px;
-    }
-
-    .step {
-      position: relative;
+    .hero-logo {
       display: flex;
-      align-items: flex-start;
-      gap: 11px;
-      padding-bottom: 20px;
+      justify-content: center;
+      align-items: center;
+      margin: 22px auto 14px;
+      width: 88px;
+      height: 88px;
+      border-radius: 26px;
+      background: linear-gradient(145deg, #3988ff, #175bd0);
+      box-shadow: 0 12px 25px rgba(40, 120, 240, 0.25);
     }
 
-    .step:not(:last-of-type)::before {
-      content: "";
-      position: absolute;
-      left: 13px;
-      top: 29px;
-      bottom: 2px;
-      width: 1px;
-      background: #dce6ff;
-    }
-
-    .step-number {
-      position: relative;
-      z-index: 1;
-      flex: 0 0 27px;
-      height: 27px;
-      display: grid;
-      place-items: center;
-      border-radius: 9px;
-      background: #eaf0ff;
-      color: var(--blue);
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    .step-content {
-      min-width: 0;
-      flex: 1;
-    }
-
-    .step h3 {
-      margin: 2px 0 5px;
-      color: #243b69;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .step p,
-    .step li {
-      color: #64748b;
-      font-size: 11px;
-      line-height: 1.75;
-    }
-
-    .step p {
-      margin: 0 0 6px;
-    }
-
-    .step ul {
-      padding-left: 17px;
-      margin: 4px 0;
-    }
-
-    code {
-      padding: 2px 5px;
-      overflow-wrap: anywhere;
-      border-radius: 5px;
-      background: #eef3ff;
-      color: #2854c7;
-      font-size: 10px;
-    }
-
-    .tip {
-      padding: 12px 13px;
-      border: 1px solid #dce7ff;
-      border-radius: 12px;
-      background: #f4f7ff;
-    }
-
-    .tip strong {
-      display: block;
-      margin-bottom: 4px;
-      color: #2854c7;
-      font-size: 11px;
-    }
-
-    .tip p {
+    .hero h1 {
       margin: 0;
-      color: #64748b;
-      font-size: 10px;
+      font-size: clamp(27px, 6vw, 35px);
+      line-height: 1.15;
+      letter-spacing: -1.1px;
+    }
+
+    .hero h1 span {
+      color: var(--blue);
+    }
+
+    .hero p {
+      max-width: 360px;
+      margin: 12px auto 0;
+      color: var(--muted);
+      font-size: 14px;
       line-height: 1.7;
     }
 
-    footer {
-      padding-top: 23px;
-      color: #9aa7bd;
+    .content {
+      padding: 24px;
+    }
+
+    .section-label {
+      margin: 0 0 15px;
+      color: #8190a7;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    .download-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .download-button {
+      display: flex;
+      min-width: 0;
+      min-height: 164px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 8px;
+      color: var(--text);
       text-align: center;
-      font-size: 10px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: #ffffff;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .download-button:hover {
+      transform: translateY(-3px);
+      border-color: #b8d1ff;
+      box-shadow: 0 10px 24px rgba(40, 120, 240, 0.10);
+    }
+
+    .download-button:active {
+      transform: scale(0.98);
+    }
+
+    .icon-wrap {
+      display: flex;
+      width: 82px;
+      height: 82px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 23px;
+    }
+
+    .icon-android {
+      background: #e7f9ed;
+    }
+
+    .icon-controller {
+      background: #eaf1ff;
+    }
+
+    .download-button strong {
+      font-size: 14px;
+      line-height: 1.3;
+    }
+
+    .download-button small {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.3;
+    }
+
+    .action-button {
+      display: flex;
+      width: 100%;
+      min-height: 54px;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      margin-top: 13px;
+      padding: 14px 18px;
+      border: 0;
+      border-radius: 15px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+
+    .action-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .support-button {
+      color: #ffffff;
+      background: linear-gradient(110deg, #ff627d, #f04470);
+      box-shadow: 0 7px 16px rgba(240, 68, 112, 0.17);
+    }
+
+    .support-button:hover {
+      box-shadow: 0 10px 22px rgba(240, 68, 112, 0.25);
+    }
+
+    .guide-button {
+      color: #ffffff;
+      background: linear-gradient(110deg, #3988ff, #2369df);
+      box-shadow: 0 7px 16px rgba(40, 120, 240, 0.18);
+    }
+
+    .guide-button:hover {
+      box-shadow: 0 10px 22px rgba(40, 120, 240, 0.25);
+    }
+
+    .button-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .guide-panel {
+      display: none;
+      margin-top: 22px;
+      padding: 20px 17px;
+      border: 1px solid #dce8fa;
+      border-radius: 19px;
+      background: #f8fbff;
+      animation: appear 0.25s ease;
+    }
+
+    .guide-panel.show {
+      display: block;
     }
 
     @keyframes appear {
       from {
         opacity: 0;
-        transform: translateY(-5px);
+        transform: translateY(7px);
       }
       to {
         opacity: 1;
@@ -348,27 +262,162 @@
       }
     }
 
-    @media (max-width: 350px) {
+    .guide-heading {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 19px;
+    }
+
+    .guide-heading-icon {
+      display: flex;
+      width: 43px;
+      height: 43px;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border-radius: 13px;
+      background: #e0ecff;
+    }
+
+    .guide-heading h2 {
+      margin: 0 0 4px;
+      font-size: 17px;
+    }
+
+    .guide-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 17px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 29px minmax(0, 1fr);
+      gap: 11px;
+      align-items: start;
+    }
+
+    .step-number {
+      display: flex;
+      width: 27px;
+      height: 27px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9px;
+      color: #ffffff;
+      background: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin: 2px 0 5px;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .step p {
+      margin: 0;
+      color: #60718b;
+      font-size: 12px;
+      line-height: 1.7;
+      overflow-wrap: anywhere;
+    }
+
+    .file-name {
+      display: inline-block;
+      margin: 3px 0;
+      padding: 3px 7px;
+      border: 1px solid #d8e6ff;
+      border-radius: 6px;
+      color: #1757b5;
+      background: #edf4ff;
+      font-family: Consolas, monospace;
+      font-size: 11px;
+      overflow-wrap: anywhere;
+    }
+
+    .notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin-top: 20px;
+      padding: 12px;
+      border: 1px solid #f4dfaa;
+      border-radius: 12px;
+      background: #fff9e9;
+    }
+
+    .notice p {
+      margin: 0;
+      color: #775a1e;
+      font-size: 11px;
+      line-height: 1.65;
+    }
+
+    .notice strong {
+      color: #69480c;
+    }
+
+    .footer {
+      padding: 17px 20px 22px;
+      border-top: 1px solid #edf1f7;
+      color: #91a0b5;
+      font-size: 11px;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .footer strong {
+      color: #637590;
+    }
+
+    @media (max-width: 380px) {
       body {
-        padding: 20px 11px;
+        padding: 16px 10px;
       }
 
-      h1 {
-        font-size: 22px;
+      .hero {
+        padding: 27px 17px 22px;
       }
 
-      .button {
-        gap: 6px;
-        padding: 10px 6px;
-        font-size: 11px;
+      .content {
+        padding: 18px 15px;
+      }
+
+      .download-grid {
+        gap: 9px;
+      }
+
+      .download-button {
+        min-height: 151px;
+      }
+
+      .icon-wrap {
+        width: 72px;
+        height: 72px;
+      }
+
+      .icon-wrap svg {
+        width: 68px;
+        height: 68px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
+      *,
+      *::before,
+      *::after {
         scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
@@ -376,280 +425,309 @@
 
 <body>
   <main class="container">
+    <div class="card">
 
-    <header class="hero">
-      <div class="app-icon" aria-hidden="true">🍄</div>
-      <p class="eyebrow">ANDROID GAME</p>
-      <h1>SMB Remastered</h1>
-      <p class="description">
-        Download game dan ikuti panduan instalasi
-        dengan mudah melalui HP Android kamu.
-      </p>
-    </header>
+      <!-- HEADER -->
+      <header class="hero">
+        <div class="hero-badge">
+          <span>🎮</span>
+          ANDROID GAMING
+        </div>
 
-    <p class="section-label">Download &amp; Links</p>
-
-    <nav class="actions" aria-label="Menu utama">
-
-      <!-- DOWNLOAD APK -->
-      <a class="button button-primary"
-         href="https://drive.google.com/file/d/15mRQlT2KgXenGyRYHDZlo414DNi8mDbN/view?usp=drive_link"
-         target="_blank"
-         rel="noopener noreferrer">
-
-        <span class="button-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="32" height="32">
-            <defs>
-              <linearGradient id="apkPhone" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#86efac"/>
-                <stop offset="100%" stop-color="#16a34a"/>
-              </linearGradient>
-            </defs>
-            <rect x="9" y="3" width="27" height="42" rx="7" fill="#173b78"/>
-            <rect x="12" y="7" width="21" height="33" rx="4" fill="url(#apkPhone)"/>
-            <rect x="19" y="4.5" width="7" height="1.5" rx="1" fill="#bfdbfe"/>
-            <circle cx="22.5" cy="42.5" r="1.4" fill="#bfdbfe"/>
-            <path d="M22.5 13v13m-5-5 5 5 5-5"
-                  fill="none" stroke="#ffffff" stroke-width="3.2"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="34" cy="34" r="10" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
-            <path d="M34 28v10m-4-4 4 4 4-4"
-                  fill="none" stroke="#ffffff" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-
-        <span class="button-text">
-          Download APK
-          <small>File aplikasi</small>
-        </span>
-      </a>
-
-      <!-- DOWNLOAD ROM -->
-      <a class="button button-primary"
-         href="https://drive.google.com/file/d/1ZKqDHntenFLPG_RvTFhS8k8CnWeVN_hb/view?usp=drive_link"
-         target="_blank"
-         rel="noopener noreferrer">
-
-        <span class="button-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="32" height="32">
-            <path d="M11 15C5 15 3 22 5 31l2 7c1 4 5 5 8 2l6-6h7l6 6c3 3 7 2 8-2l2-7c2-9 0-16-6-16Z"
-                  fill="#334155" stroke="#172554" stroke-width="1.5"/>
-            <path d="M14 21v12m-6-6h12"
-                  fill="none" stroke="#e2e8f0" stroke-width="4"
+        <div class="hero-logo" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="61" height="61"
+               fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 39L17 21H47L52 39C54 46 46 50 41 44L36 39H28L23 44C18 50 10 46 12 39Z"
+                  fill="#FFFFFF"/>
+            <path d="M22 27V35M18 31H26"
+                  stroke="#2878F0" stroke-width="4"
                   stroke-linecap="round"/>
-            <circle cx="34" cy="23" r="3.2" fill="#facc15"/>
-            <circle cx="38" cy="29" r="3.2" fill="#fb7185"/>
-            <circle cx="31" cy="31" r="2.4" fill="#60a5fa"/>
-            <path d="M24 17v10m-4-4 4 4 4-4"
-                  fill="none" stroke="#ffffff" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-
-        <span class="button-text">
-          Download ROM
-          <small>File permainan</small>
-        </span>
-      </a>
-
-      <!-- SUPPORT SAYA -->
-      <a class="button button-support"
-         href="https://sociabuzz.com/toobey/tribe"
-         target="_blank"
-         rel="noopener noreferrer">
-
-        <span class="button-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="29" height="29">
-            <defs>
-              <linearGradient id="heartColor" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#fb7185"/>
-                <stop offset="100%" stop-color="#e11d48"/>
-              </linearGradient>
-            </defs>
-            <path d="M24 41S5 29 5 16C5 5 19 2 24 13 29 2 43 5 43 16 43 29 24 41 24 41Z"
-                  fill="url(#heartColor)" stroke="#be123c" stroke-width="1.2"/>
-            <path d="M12 15c1-4 5-6 8-4"
-                  fill="none" stroke="#fecdd3" stroke-width="3"
-                  stroke-linecap="round"/>
-            <path d="m19 22 4 4 8-9"
-                  fill="none" stroke="#ffffff" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-
-        Support Saya
-        <span class="chevron" aria-hidden="true">↗</span>
-      </a>
-
-      <!-- PANDUAN INSTALASI -->
-      <button class="button button-guide"
-              id="guideButton"
-              type="button"
-              aria-expanded="false"
-              aria-controls="installationGuide">
-
-        <span class="button-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="30" height="30">
-            <path d="M5 10c7-3 14-2 19 2v29c-5-4-12-5-19-2Z"
-                  fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.5"
-                  stroke-linejoin="round"/>
-            <path d="M43 10c-7-3-14-2-19 2v29c5-4 12-5 19-2Z"
-                  fill="#ffffff" stroke="#1d4ed8" stroke-width="1.5"
-                  stroke-linejoin="round"/>
-            <path d="M10 16c4-1 7 0 10 2M10 22c4-1 7 0 10 2M10 28c4-1 7 0 10 2"
-                  fill="none" stroke="#dbeafe" stroke-width="2"
-                  stroke-linecap="round"/>
-            <path d="M29 17h9M29 23h9M29 29h7"
-                  fill="none" stroke="#60a5fa" stroke-width="2"
-                  stroke-linecap="round"/>
-            <path d="m31 5 2 3 4 1-4 2-2 4-2-4-4-2 4-1Z"
-                  fill="#fbbf24"/>
-          </svg>
-        </span>
-
-        Panduan Instalasi
-        <span class="chevron" aria-hidden="true">⌄</span>
-      </button>
-
-    </nav>
-
-    <!-- PANDUAN: MUNCUL SAAT DIKLIK -->
-    <section class="guide" id="installationGuide" hidden>
-
-      <div class="guide-heading">
-        <div class="guide-heading-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="30" height="30">
-            <path d="M5 10c7-3 14-2 19 2v29c-5-4-12-5-19-2Z"
-                  fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.5"
-                  stroke-linejoin="round"/>
-            <path d="M43 10c-7-3-14-2-19 2v29c5-4 12-5 19-2Z"
-                  fill="#ffffff" stroke="#1d4ed8" stroke-width="1.5"
-                  stroke-linejoin="round"/>
-            <path d="M10 16c4-1 7 0 10 2M10 22c4-1 7 0 10 2M10 28c4-1 7 0 10 2"
-                  fill="none" stroke="#dbeafe" stroke-width="2"
-                  stroke-linecap="round"/>
-            <path d="M29 17h9M29 23h9M29 29h7"
-                  fill="none" stroke="#60a5fa" stroke-width="2"
-                  stroke-linecap="round"/>
+            <circle cx="41" cy="29" r="3" fill="#FFCE45"/>
+            <circle cx="47" cy="34" r="3" fill="#FF6B83"/>
           </svg>
         </div>
-        <div>
-          <h2>Panduan Instalasi</h2>
-          <p>Ikuti langkah-langkah berikut</p>
-        </div>
-      </div>
 
-      <div class="step">
-        <div class="step-number">1</div>
-        <div class="step-content">
-          <h3>Download kedua file</h3>
-          <p>
-            Tekan tombol Download APK dan Download ROM di atas.
-            Pastikan kedua file sudah tersimpan di HP.
-          </p>
-          <ul>
-            <li>SMB Remastered Android (.apk)</li>
-            <li><code>Super Mario Bros.nes</code></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-number">2</div>
-        <div class="step-content">
-          <h3>Izinkan instalasi aplikasi</h3>
-          <p>
-            Jika diminta, buka pengaturan Android untuk
-            mengizinkan pemasangan aplikasi dari sumber tersebut.
-          </p>
-          <p>
-            Pada beberapa perangkat, menu ini ada di
-            <b>Settings → Security &amp; Privacy →
-            Install unknown apps</b>. Nama menu bisa berbeda
-            tergantung merek dan versi Android.
-          </p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-number">3</div>
-        <div class="step-content">
-          <h3>Instal SMB Remastered</h3>
-          <p>
-            Buka File Manager, masuk ke folder
-            <code>Download</code>, lalu ketuk file APK.
-            Tekan <b>Install</b> dan tunggu sampai selesai.
-          </p>
-          <p>Setelah selesai, buka aplikasinya.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-number">4</div>
-        <div class="step-content">
-          <h3>Pilih file ROM</h3>
-          <p>
-            Saat muncul pesan
-            <code>ROM VERIFICATION REQUIRED</code>,
-            ketuk pesan atau tombol untuk memilih file.
-          </p>
-          <p>
-            Cari lalu pilih <code>Super Mario Bros.nes</code>
-            dari penyimpanan HP.
-          </p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-number">5</div>
-        <div class="step-content">
-          <h3>Mulai bermain</h3>
-          <p>
-            Tunggu proses pemeriksaan ROM selesai.
-            Jika file berhasil dikenali, kamu bisa melanjutkan
-            ke permainan.
-          </p>
-        </div>
-      </div>
-
-      <div class="tip">
-        <strong>ROM tidak terbaca?</strong>
+        <h1>SMB <span>Remastered</span></h1>
         <p>
-          Pastikan file ROM terunduh lengkap dan pilih file
-          yang benar. Jika masih gagal, coba unduh ulang
-          file ROM kemudian pilih kembali.
+          Mainkan kembali keseruan Super Mario Bros
+          langsung dari perangkat Android kamu.
         </p>
-      </div>
+      </header>
 
-    </section>
+      <!-- DOWNLOAD BUTTONS -->
+      <section class="content">
+        <p class="section-label">Mulai petualanganmu</p>
 
-    <footer>
-      SMB Remastered Android · Made for gamers
-    </footer>
+        <div class="download-grid">
 
+          <!-- DOWNLOAD APK: ANDROID PHONE ICON -->
+          <a
+            class="download-button"
+            href="https://drive.google.com/file/d/15mRQlT2KgXenGyRYHDZlo414DNi8mDbN/view?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download APK SMB Remastered"
+          >
+            <div class="icon-wrap icon-android">
+              <svg viewBox="0 0 100 100" width="76" height="76"
+                   fill="none" xmlns="http://www.w3.org/2000/svg"
+                   aria-hidden="true">
+                <rect x="23" y="5" width="54" height="90" rx="13"
+                      fill="#DDFCE8"/>
+                <rect x="28" y="12" width="44" height="76" rx="8"
+                      fill="#20C96B"/>
+                <rect x="32" y="20" width="36" height="57" rx="4"
+                      fill="#FFFFFF"/>
+                <g stroke="#20A85A" stroke-width="2.5"
+                   stroke-linecap="round">
+                  <path d="M42 31V27M58 31V27"/>
+                  <path d="M38 36C38 28 62 28 62 36V44H38V36Z"
+                        fill="#20C96B"/>
+                  <path d="M35 36L31 31M65 36L69 31"/>
+                </g>
+                <circle cx="50" cy="83" r="2.5" fill="#FFFFFF"/>
+                <circle cx="78" cy="72" r="19"
+                        fill="#2878F0" stroke="#FFFFFF" stroke-width="4"/>
+                <path d="M78 61V78M71 71L78 78L85 71"
+                      stroke="#FFFFFF" stroke-width="4"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <strong>Download APK</strong>
+            <small>Aplikasi Android</small>
+          </a>
+
+          <!-- DOWNLOAD ROM: GAME CONTROLLER ICON -->
+          <a
+            class="download-button"
+            href="https://drive.google.com/file/d/1ZKqDHntenFLPG_RvTFhS8k8CnWeVN_hb/view?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download ROM Super Mario Bros"
+          >
+            <div class="icon-wrap icon-controller">
+              <svg viewBox="0 0 100 100" width="76" height="76"
+                   fill="none" xmlns="http://www.w3.org/2000/svg"
+                   aria-hidden="true">
+                <rect x="8" y="17" width="84" height="66" rx="24"
+                      fill="#DCEBFF"/>
+                <path d="M29 35H71C80 35 85 42 88 55L91 68C93 78 81 84 74 76L63 64H37L26 76C19 84 7 78 9 68L12 55C15 42 20 35 29 35Z"
+                      fill="#3478F6" stroke="#205BC5" stroke-width="3"/>
+                <path d="M27 45V59M20 52H34"
+                      stroke="#FFFFFF" stroke-width="5"
+                      stroke-linecap="round"/>
+                <circle cx="68" cy="47" r="5" fill="#FF5D6C"/>
+                <circle cx="77" cy="56" r="5" fill="#FFD54A"/>
+                <circle cx="59" cy="56" r="5" fill="#45E0A0"/>
+                <circle cx="68" cy="65" r="5" fill="#B9A0FF"/>
+                <circle cx="79" cy="76" r="19"
+                        fill="#20B96B" stroke="#FFFFFF" stroke-width="4"/>
+                <path d="M79 65V82M72 75L79 82L86 75"
+                      stroke="#FFFFFF" stroke-width="4"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <strong>Download ROM</strong>
+            <small>File game .NES</small>
+          </a>
+
+        </div>
+
+        <!-- SUPPORT BUTTON -->
+        <a
+          class="action-button support-button"
+          href="https://sociabuzz.com/toobey/tribe"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="button-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="23" height="23"
+                 fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.8 8.7C20.8 14 12 20 12 20S3.2 14 3.2 8.7A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.5Z"
+                    fill="#FFFFFF"/>
+              <path d="M8.5 12L10.7 14.2L15.8 9.5"
+                    stroke="#F04470" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          Support Saya
+          <span aria-hidden="true">↗</span>
+        </a>
+
+        <!-- GUIDE TOGGLE BUTTON -->
+        <button
+          class="action-button guide-button"
+          id="guideToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="guidePanel"
+        >
+          <span class="button-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="25" height="25"
+                 fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 7.5C8.5 6 12.2 7 16 9.5V27C12.2 24.5 8.5 23.5 4 25V7.5Z"
+                    fill="#FFFFFF" stroke="#D8E7FF" stroke-width="1.5"
+                    stroke-linejoin="round"/>
+              <path d="M28 7.5C23.5 6 19.8 7 16 9.5V27C19.8 24.5 23.5 23.5 28 25V7.5Z"
+                    fill="#D5E6FF" stroke="#FFFFFF" stroke-width="1.5"
+                    stroke-linejoin="round"/>
+              <path d="M20 12L21.5 14.5L24 16L21.5 17.5L20 20L18.5 17.5L16 16L18.5 14.5L20 12Z"
+                    fill="#FFD54A"/>
+            </svg>
+          </span>
+          <span id="guideButtonText">Panduan Instalasi</span>
+          <span id="guideArrow" aria-hidden="true">⌄</span>
+        </button>
+
+        <!-- HIDDEN INSTALLATION GUIDE -->
+        <section
+          class="guide-panel"
+          id="guidePanel"
+          aria-labelledby="guideTitle"
+          hidden
+        >
+          <div class="guide-heading">
+            <div class="guide-heading-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="34" height="34"
+                   fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 7.5C8.5 6 12.2 7 16 9.5V27C12.2 24.5 8.5 23.5 4 25V7.5Z"
+                      fill="#FFFFFF" stroke="#2878F0" stroke-width="1.5"
+                      stroke-linejoin="round"/>
+                <path d="M28 7.5C23.5 6 19.8 7 16 9.5V27C19.8 24.5 23.5 23.5 28 25V7.5Z"
+                      fill="#D5E6FF" stroke="#2878F0" stroke-width="1.5"
+                      stroke-linejoin="round"/>
+                <path d="M20 12L21.5 14.5L24 16L21.5 17.5L20 20L18.5 17.5L16 16L18.5 14.5L20 12Z"
+                      fill="#FFD54A"/>
+              </svg>
+            </div>
+            <div>
+              <h2 id="guideTitle">Panduan Instalasi</h2>
+              <p>Ikuti langkah berikut sampai game siap dimainkan.</p>
+            </div>
+          </div>
+
+          <div class="steps">
+
+            <article class="step">
+              <div class="step-number">1</div>
+              <div>
+                <h3>Download APK dan ROM</h3>
+                <p>
+                  Download kedua file dari tombol di atas.
+                  Pastikan file ROM bernama
+                  <br>
+                  <span class="file-name">Super Mario Bros.nes</span>
+                </p>
+              </div>
+            </article>
+
+            <article class="step">
+              <div class="step-number">2</div>
+              <div>
+                <h3>Izinkan instalasi aplikasi</h3>
+                <p>
+                  Jika Android meminta izin, buka Settings
+                  atau Pengaturan → Security &amp; Privacy
+                  → Install unknown apps, lalu izinkan
+                  instalasi dari aplikasi yang digunakan untuk membuka APK.
+                  Nama menu dapat berbeda sesuai merek HP.
+                </p>
+              </div>
+            </article>
+
+            <article class="step">
+              <div class="step-number">3</div>
+              <div>
+                <h3>Instal aplikasi</h3>
+                <p>
+                  Buka File Manager → Downloads.
+                  Ketuk file APK yang sudah diunduh,
+                  lalu pilih Install atau Instal.
+                </p>
+              </div>
+            </article>
+
+            <article class="step">
+              <div class="step-number">4</div>
+              <div>
+                <h3>Pilih file ROM game</h3>
+                <p>
+                  Buka aplikasi SMB Remastered.
+                  Jika muncul pesan
+                  <span class="file-name">ROM VERIFICATION REQUIRED</span>,
+                  pilih file
+                  <span class="file-name">Super Mario Bros.nes</span>
+                  dari penyimpanan HP.
+                </p>
+              </div>
+            </article>
+
+            <article class="step">
+              <div class="step-number">5</div>
+              <div>
+                <h3>Mulai bermain!</h3>
+                <p>
+                  Setelah ROM berhasil diverifikasi,
+                  ikuti petunjuk di aplikasi dan nikmati
+                  permainan Super Mario Bros.
+                </p>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="notice">
+            <span aria-hidden="true">💡</span>
+            <p>
+              <strong>ROM tidak terbaca?</strong><br>
+              Pastikan file ROM sudah terunduh sepenuhnya
+              dan pilih file yang benar, bukan file ZIP atau
+              file lain. Jika masih gagal, coba download ulang.
+            </p>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <strong>SMB Remastered</strong><br>
+        Panduan download dan instalasi untuk Android.
+      </footer>
+
+    </div>
   </main>
 
   <script>
-    const guideButton = document.getElementById("guideButton");
-    const guide = document.getElementById("installationGuide");
+    const guideToggle = document.getElementById("guideToggle");
+    const guidePanel = document.getElementById("guidePanel");
+    const guideButtonText = document.getElementById("guideButtonText");
+    const guideArrow = document.getElementById("guideArrow");
 
-    guideButton.addEventListener("click", function () {
-      const isOpening = guide.hidden;
+    guideToggle.addEventListener("click", function () {
+      const isOpening = guidePanel.hidden;
 
-      guide.hidden = !isOpening;
-      guideButton.setAttribute("aria-expanded", String(isOpening));
+      guidePanel.hidden = !isOpening;
+      guidePanel.classList.toggle("show", isOpening);
+
+      guideToggle.setAttribute("aria-expanded", String(isOpening));
+      guideButtonText.textContent = isOpening
+        ? "Tutup Panduan"
+        : "Panduan Instalasi";
+
+      guideArrow.textContent = isOpening ? "⌃" : "⌄";
 
       if (isOpening) {
-        guide.scrollIntoView({
-          behavior: window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-          ).matches ? "auto" : "smooth",
-          block: "start"
-        });
+        window.setTimeout(function () {
+          guidePanel.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+          });
+        }, 50);
       }
     });
   </script>
-
 </body>
 </html>
